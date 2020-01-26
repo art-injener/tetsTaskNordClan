@@ -10,7 +10,7 @@ import ru.art.testTaskNordClan.repository.EventRepository;
 public class MainController {
 
     @Autowired
-    EventRepository er;
+    private  EventRepository eventRepo;
 
     @RequestMapping(value="/", method= RequestMethod.GET)
     public ModelAndView index() {

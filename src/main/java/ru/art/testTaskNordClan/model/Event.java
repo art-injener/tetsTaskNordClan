@@ -18,10 +18,20 @@ public class Event {
     private Long id;
     private String title;
     private String description;
+
     private LocalDateTime start;
     private LocalDateTime end;
 
     public Event() {
+    }
+
+    public Event(Long id, String title, String description, LocalDateTime start, LocalDateTime finish) {
+        super();
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.start = start;
+        this.end = finish;
     }
 
     private LocalDateTime convertToTimeZone(LocalDateTime time)
