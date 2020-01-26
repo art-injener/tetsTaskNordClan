@@ -1,6 +1,7 @@
 package ru.art.testTaskNordClan.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +17,21 @@ public class EventController {
 
     @RequestMapping(value="/allevents", method = RequestMethod.GET)
     public List<Event> allEvents() {
-        System.out.println("allEvents" + eventRepository.findAll());
         return eventRepository.findAll();
+    }
+
+    @RequestMapping(value="/event", method=RequestMethod.DELETE)
+    public List<Event> removeEvent(@RequestBody Event event) {
+        eventRepository.delete(event);
+        return allEvents();
+    }
+
+    @RequestMapping(value="/event", method=RequestMethod.POST)
+    public Event addEvent(@RequestBody Event event) {
+
+        if(eventRepository.checkForExistingEvent(event.getStart(), event.getEnd()) != 0) {
+            return null;
+        }
+        return eventRepository.save(event);
     }
 }

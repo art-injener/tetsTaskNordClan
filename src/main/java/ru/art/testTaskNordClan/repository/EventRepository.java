@@ -14,8 +14,11 @@ import java.util.List;
 */
 @Repository
 public interface EventRepository extends JpaRepository<Event, Long> {
-    @Query("select b from Event b where b.start >= ?1 and b.finish <= ?2")
-    public List<Event> findBetween(@DateTimeFormat(iso= DateTimeFormat.ISO.DATE_TIME) LocalDateTime start,
-                                   @DateTimeFormat(iso= DateTimeFormat.ISO.DATE_TIME) LocalDateTime end);
-
+    @Query("select b from Event b where b.start >= ?1 and b.end <= ?2")
+     List<Event> findBetween(LocalDateTime start,
+                                   LocalDateTime end);
+    @Query("select COUNT(b.id) from Event b where (b.start > ?1 and b.start < ?2) or (b.end > ?1 and b.end < ?2) " +
+            " or (b.start >= ?1 and b.end <= ?2)")
+    int checkForExistingEvent(LocalDateTime start,
+                                      LocalDateTime end);
 }
