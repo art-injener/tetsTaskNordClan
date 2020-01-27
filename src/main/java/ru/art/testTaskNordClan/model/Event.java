@@ -16,6 +16,10 @@ public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @JoinColumn(name = "user_id")
+    private Long userId;
+
     private String title;
     private String description;
 
@@ -25,14 +29,18 @@ public class Event {
     public Event() {
     }
 
-    public Event(Long id, String title, String description, LocalDateTime start, LocalDateTime finish) {
+    public Event(Long id,
+                 String title,
+                 String description,
+                 LocalDateTime start,
+                 LocalDateTime finish) {
         super();
         this.id = id;
         this.title = title;
         this.description = description;
         this.start = start;
         this.end = finish;
-    }
+     }
 
     private LocalDateTime convertToTimeZone(LocalDateTime time)
     {
@@ -48,6 +56,14 @@ public class Event {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long user_id) {
+        this.userId = user_id;
     }
 
     public String getTitle() {
@@ -88,4 +104,5 @@ public class Event {
         return "Event [id=" + id + ", title=" + title + ", description=" + description + ", start=" + start
                 + ", finish=" + end + "]";
     }
+
 }

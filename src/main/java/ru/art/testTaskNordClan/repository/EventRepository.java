@@ -6,6 +6,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Repository;
 import ru.art.testTaskNordClan.model.Event;
+import ru.art.testTaskNordClan.model.User;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -16,9 +17,13 @@ import java.util.List;
 public interface EventRepository extends JpaRepository<Event, Long> {
     @Query("select b from Event b where b.start >= ?1 and b.end <= ?2")
      List<Event> findBetween(LocalDateTime start,
-                                   LocalDateTime end);
-    @Query("select COUNT(b.id) from Event b where (b.start > ?1 and b.start < ?2) or (b.end > ?1 and b.end < ?2) " +
-            " or (b.start >= ?1 and b.end <= ?2)")
+                             LocalDateTime end);
+    @Query("select COUNT(b.id) from Event b where ((b.start > ?1 and b.start < ?2) or (b.end > ?1 and b.end < ?2) " +
+            " or (b.start >= ?1 and b.end <= ?2)) and (b.userId = ?3)")
     int checkForExistingEvent(LocalDateTime start,
-                                      LocalDateTime end);
+                              LocalDateTime end,
+                              Long id);
+
+    @Query("select b from Event b where (b.userId = ?1)")
+    List<Event> findAll(Long id);
 }

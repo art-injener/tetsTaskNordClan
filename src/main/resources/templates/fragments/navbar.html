@@ -16,10 +16,19 @@
 
             <div class="collapse navbar-collapse navbar-dark" id="navbarText">
                 <ul class="navbar-nav mr-auto"></ul>
-                <span class="navbar-text mr-3">[[${#httpServletRequest.remoteUser} ?: 'Guest']]</span>
-                <form th:action="@{/logout}" method="post">
-                    <input type="submit" class="btn btn-primary" value="Выйти"/>
-                </form>
+                <div th:with="usr=${#httpServletRequest.remoteUser}">
+                    <div th:if="${usr}" class="dropdown">
+                        <a class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            [[${#httpServletRequest.remoteUser}]]
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <form th:action="@{/logout}" method="post">
+                                <input type="submit" class="btn btn-link btn-sm" aria-haspopup="true" aria-expanded="false" value="Выйти"/>
+                            </form>
+                        </div>
+                    </div>
+                    <span th:unless="${usr}">Guest</span>
+                </div>
             </div>
         </nav>
     </div>
