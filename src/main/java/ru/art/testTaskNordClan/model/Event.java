@@ -6,6 +6,9 @@ import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 
+/**
+ *
+ */
 @Entity
 @Table(name="event")
 public class Event {
@@ -14,14 +17,37 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JoinColumn(name = "user_id")
+    private Long userId;
+
     private String title;
     private String description;
+
     private LocalDateTime start;
-    private LocalDateTime finish;
+    private LocalDateTime end;
 
     public Event() {
+    }
+
+    public Event(Long id,
+                 String title,
+                 String description,
+                 LocalDateTime start,
+                 LocalDateTime finish) {
         super();
-        System.out.println("Create empty Event");
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.start = start;
+        this.end = finish;
+     }
+
+    private LocalDateTime convertToTimeZone(LocalDateTime time)
+    {
+        ZonedDateTime zdtAtET = ZonedDateTime.of(time, ZoneOffset.UTC);
+        ZoneId ms = ZoneId.of("Europe/Moscow");
+        ZonedDateTime ldt = zdtAtET.withZoneSameInstant(ms);
+        return ldt.toLocalDateTime();
     }
 
     public Long getId() {
@@ -30,6 +56,14 @@ public class Event {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long user_id) {
+        this.userId = user_id;
     }
 
     public String getTitle() {
@@ -49,32 +83,26 @@ public class Event {
     }
 
     public LocalDateTime getStart() {
-
         return start;
     }
 
     public void setStart(LocalDateTime start) {
-        System.out.println("set Event" + start.toString());
-        ZonedDateTime zdtAtET = ZonedDateTime.ofLocal(start, ZoneId.of("America/New_York"), ZoneOffset.UTC);
-
-        //LocalDateTime ldt = zdtAtET.toLocalDateTime();
-        System.out.println("set Event" + zdtAtET);
-
-        this.start = start.plusHours(3);
+        this.start = convertToTimeZone(start);
     }
 
 
-    public LocalDateTime getFinish() {
-        return finish;
+    public LocalDateTime getEnd() {
+        return end;
     }
 
-    public void setFinish(LocalDateTime finish) {
-        this.finish = finish.plusHours(3);
+    public void setEnd(LocalDateTime finish) {
+        this.end = convertToTimeZone(finish);
     }
 
     @Override
     public String toString() {
         return "Event [id=" + id + ", title=" + title + ", description=" + description + ", start=" + start
-                + ", finish=" + finish + "]";
+                + ", finish=" + end + "]";
     }
+
 }
