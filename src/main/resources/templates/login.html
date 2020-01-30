@@ -1,28 +1,42 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<head>
-    <th:block th:include="fragments/header.html :: headerfiles">
-    </th:block>
+<head lang="ru">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Страница авторизации</title>
+    <!--<link rel="stylesheet" href="/static/normalize.css">-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/login-page.css">
 </head>
-<body>
-<div class="container brd mt-5 col-sm-2">
-    <div th:if="${param.error}">
-        <strong>Неправильный логин или пароль!</strong>
+<body class="container">
+<div class="auth-form col">
+    <div class="auth-form-header">
+        <h1 class="title">Сервис бронирования комнаты для переговоров</h1>
+        <!--<p class="description">Введите пожалуйста свой логин и пароль</p>
+   --> </div>
+
+    <div class="auth-form-info rounded-sm bg-danger" th:if="${param.error}">
+        <p class="message">
+            <strong>Неверно указан логин или пороль</strong>
+        </p>
     </div>
-    <form th:action="@{/login}" method="post">
+
+    <div class="auth-form-info">
+        <p class="description">Введите пожалуйста свой логин и пароль</p>
+    </div>
+
+    <form class="auth-form-body" th:action="@{/login}" method="post">
         <div class="form-group">
-            <label class="col-form-label">Логин : </label>
-                <input type="text" class="form-control" name="username"/>
-                <small class="form-text text-muted">Введите имя пользователя</small>
+            <label for="user-login" class="visually-hidden">Логин</label>
+            <input type="text" class="form-control form-control-sm" id="user-login" name="username" placeholder="Логин">
         </div>
         <div class="form-group">
-            <label class="col-form-label">Пароль: </label>
-                <input type="password" class="form-control" name="password" placeholder="Введите пароль"/>
-                <small class="form-text text-muted">Введите пароль для входа</small>
+            <label class="visually-hidden" for="user-password">Пороль</label>
+            <input class="form-control form-control-sm" id="user-password" type="password" name="password" placeholder="Пороль">
         </div>
-         <input type="submit" class="btn btn-primary" value="Войти"/>
+        <input type="submit" class="btn btn-block btn-submit" value="Войти"/>
     </form>
 </div>
 </body>

@@ -9,6 +9,11 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import ru.art.testTaskNordClan.service.UserService;
 
+/**
+ * Class extender of WebSecurityConfigurerAdapter
+ * Provides a  base class for creating a WebSecurityConfigurerAdapter instance.
+ * @author Danilchenko Artem
+ */
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -16,6 +21,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserService userService;
 
+    /**
+     * Method allows configuring web based security for specific http requests.
+     * @param http instance of HttpSecurity
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
@@ -30,10 +39,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .logout()
                     .permitAll();
 
-        // add this line to use H2 web console
         http.headers().frameOptions().disable();
     }
-
+    /**
+     * Method allows configuring AuthenticationManagerBuilder
+     * @param auth instance of AuthenticationManagerBuilder
+     */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
          auth.userDetailsService(userService)
