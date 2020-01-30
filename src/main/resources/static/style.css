@@ -1,14 +1,16 @@
-body{
+body {
  background-color: #2A120A;
  color:white;
 }
 
-brd{
+brd {
  border: 4px double black;
  padding: 10px;
  color:white;
 }
 
-h1{
- font-family:Comic Sans MS;
+h1 {
+ font-family: Comic Sans MS;
 }
+
+/* login.css */

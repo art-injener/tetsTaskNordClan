@@ -1,0 +1,85 @@
+body {
+    padding: 20px;
+    background-color: #76484b;
+}
+
+.auth-form {
+    margin: 2rem auto 0;
+    max-width: 540px;
+    padding: 50px 80px;
+    border: 2px solid #A8665B;
+    border-radius: 5px;
+}
+
+.auth-form-header {
+    margin-bottom: 20px;
+    color: #f7eff0;
+}
+
+.auth-form-header h1 {
+    font-size: 1.6rem;
+}
+
+.auth-form-header .description {
+
+}
+
+.auth-form-info {
+    margin-bottom: 20px;
+    color: #f7eff0;
+}
+
+.auth-form-info .message {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.auth-form-info strong {
+    font-weight: 400;
+}
+
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+/* control */
+.btn-submit {
+    color: #f7eff0;
+    border-color: #C27669;
+}
+
+.btn-submit:hover,
+.btn-submit:active,
+.btn-submit:focus {
+    color: #76484b;
+    background-color: #DB8676;
+    border-color: #C2867C;
+}
+
+.btn-submit:active {
+    box-shadow: 0 0 0 0.2rem rgba(194,134,124,.25);
+}
+
+/* Define bootstrap style */
+.form-control {
+    color: #8F4B3F !important;
+    border-color: #C27669;
+}
+
+.form-control:focus {
+    border-color: #C2867C;
+    box-shadow: 0 0 0 0.2rem rgba(194,134,124,.25);
+}
