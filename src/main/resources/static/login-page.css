@@ -20,10 +20,6 @@ body {
     font-size: 1.6rem;
 }
 
-.auth-form-header .description {
-
-}
-
 .auth-form-info {
     margin-bottom: 20px;
     color: #f7eff0;
@@ -31,7 +27,7 @@ body {
 
 .auth-form-info .message {
     margin: 0;
-    padding: 0;
+    padding: 5px 10px;
     text-align: center;
 }
 

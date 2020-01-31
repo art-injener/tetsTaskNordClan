@@ -1,0 +1,326 @@
+body.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 10px;
+    background-color: #76484b;
+    color: #f7eff0;
+}
+
+.logo h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #f7eff0;
+}
+
+.user-nav {
+    margin-left: auto;
+}
+
+.user__name {
+    display: flex;
+    align-items: center;
+
+    background: transparent;
+    border: none;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.0rem;
+}
+
+.dropdown-menu.show {
+    color: #f7eff0;
+    background: #c2766982;
+    border-color: transparent;
+}
+
+input.btn.btn-link.btn-sm {
+    color: inherit;
+}
+
+/* change bootstrap style */
+.dropdown-toggle::after {
+    display: block;
+    margin-left: .255em;
+    vertical-align: .255em;
+    content: "";
+    background-image: url("/img/user.svg");
+    border: none;
+    width: 80px;
+    height: 80px;
+}
+
+/* change calendar style */
+.calendar {
+    margin-top: 20px;
+}
+
+.fc-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 35px;
+
+    font-size: 16px;
+}
+
+.fc-left {
+    display: flex;
+    flex-flow: row-reverse;
+}
+
+button.fc-prev-button.fc-button.fc-state-default.fc-corner-left,
+button.fc-prev-button.fc-button.fc-state-default.fc-corner-right {
+    margin: auto 0;
+}
+
+.fc-center {
+    margin-right: auto;
+    margin-left: 0;
+
+    font-size: 18px;
+}
+
+.fc-center h2 {
+    font-size: inherit;
+}
+
+.fc-toolbar .fc-right {
+    order: 2;
+}
+
+.fc-toolbar div button[type="button"],
+.fc-toolbar div  button[type="button"]:disabled,
+.fc-toolbar div .fc-button-group button[type="button"] {
+    margin: auto 5px;
+    background: transparent;
+    border: none;
+    border: 2px solid transparent;
+    border-radius: .25rem;
+    box-shadow: none;
+    outline: none;
+    opacity: 1;
+
+    color: #f7eff0;
+    text-shadow: none;
+}
+
+.fc-toolbar div  button[type="button"]:not(:disabled):hover,
+.fc-toolbar div  button[type="button"]:not(:disabled):active,
+.fc-toolbar div  button[type="button"]:not(:disabled):focus,
+.fc-toolbar div .fc-button-group button[type="button"]:hover,
+.fc-toolbar div .fc-button-group button[type="button"]:active,
+.fc-toolbar div .fc-button-group button[type="button"]:focus {
+    color: #76484b ;
+    background-color: #DB8676 ;
+}
+
+.fc-toolbar div  button[type="button"]:disabled,
+.fc-toolbar div .fc-button-group button[type="button"].fc-state-active {
+    border: 2px solid rgb(247, 239, 240);
+}
+
+/* calendar */
+.fc-view-container {
+    font-size: 18px;
+}
+
+#calendar table .fc-row.fc-widget-header table {
+    margin-bottom: 20px;
+}
+
+.fc-day-grid {
+    //display: none;
+    margin-top: 20px;
+}
+
+.fc-row.fc-week.fc-widget-content {
+    //display: none;
+}
+
+#calendar table tbody tr hr.fc-widget-header {
+    margin: 15px auto;
+    margin-left: 60px;
+    height: 0px;
+    padding: 0;
+    border: 1px solid #f7eff0;
+}
+
+.fc-time-grid-container {
+   height: auto !important;
+   overflow: auto !important;
+}
+
+.fc-day-grid-container.fc-scroller {
+    height: auto !important;
+    overflow: auto !important;
+}
+
+#calendar table td.fc-axis.fc-time.fc-widget-content {
+    text-align: left;
+}
+
+#calendar table td {
+    border: none !important;
+    //border-right: 2px solid #f7eff0 !important;
+    border-left: 2px solid #f7eff0 !important;
+}
+
+#calendar table td:nth-child(1) {
+    border: none !important;
+}
+
+div.fc-time-grid-container hr.fc-widget-header {
+    border: none !important;
+}
+
+#calendar table .fc-slats .fc-minor td:nth-child(2) {
+    border-top-style: dotted;
+    background-color: #ffffff0a;
+}
+
+.fc-day.fc-widget-content.fc-fri.fc-today.fc-state-highlight {
+    background: #ffffff0f;
+    border-right: 2px solid #fff !important;
+}
+
+a.fc-time-grid-event.fc-event.fc-start.fc-end.fc-short {
+    background: #c2766982;
+    border-color: transparent;
+}
+
+/* modal */
+div.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons.ui-draggable.ui-resizable {
+    padding: 15px 5px;
+    background-color: #b48683;
+    border: 2px solid #A8665B;
+    box-shadow: 0px 0px 2px #A8665B;
+
+    font-size: 16px;
+    color: #f7eff0;
+}
+
+div#dialog-form {
+    height: auto !important;
+}
+
+div#edit-dialog-form {
+    height: auto !important;
+}
+
+.ui-dialog-titlebar.ui-corner-all.ui-widget-header.ui-helper-clearfix.ui-draggable-handle {
+    color: inherit;
+    background: transparent;
+    border: none;
+    margin-bottom: 10px;
+}
+
+/* control */
+button.ui-dialog-titlebar-close {
+    background: transparent;
+    border: none;
+}
+button.ui-dialog-titlebar-close:before,
+button.ui-dialog-titlebar-close:after {
+    position: absolute;
+    left: 7px;
+    top: 1px;
+    content: ' ';
+    height: 15px;
+    width: 2px;
+    background-color: #f2e7e8;
+}
+button.ui-dialog-titlebar-close:before {
+    transform: rotate(45deg);
+}
+button.ui-dialog-titlebar-close:after {
+    transform: rotate(-45deg);
+}
+
+fieldset {
+    height: auto;
+}
+
+input#newtitle,
+input#description {
+        margin: 0 0 10px 0;
+        padding: 5px 10px;
+        color: inherit !important;
+        font-size: 16px;
+}
+
+input#newtitle:hover,
+input#newtitle:active,
+input#newtitle:focus {
+
+}
+
+input#newtitle:active {
+    box-shadow: 0 0 0 0.2rem rgba(194,134,124,.25);
+}
+
+.form__data-group {
+display: flex;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+.form__data-group label {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    color: #f7eff0;
+    margin-right: 10px;
+}
+
+.form__data-group input#startdateandtime,
+.form__data-group input#enddateandtime {
+    font-size: 16px;
+    color: #818181;
+}
+
+.ui-dialog-buttonpane.ui-widget-content.ui-helper-clearfix {
+    background: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: row-reverse;
+}
+
+.ui-dialog .ui-dialog-buttonpane button {
+    background: transparent;
+    border: 2px solid #eee4e5;
+    border-radius: 5px;
+    padding: 2px 10px;
+    margin: 5px;
+    /* color: #eee4e5; */
+    color: #fff;
+    box-sizing: border-box;
+    width: 80px;
+}
+
+.ui-dialog .ui-dialog-buttonpane button[type="button"]:hover,
+.ui-dialog .ui-dialog-buttonpane button[type="button"]:active,
+.ui-dialog .ui-dialog-buttonpane button[type="button"]:focus {
+    color: #76484b ;
+    background-color: #DB8676 ;
+}
+
+/*  */
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}

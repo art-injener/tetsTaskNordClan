@@ -11,33 +11,32 @@
     <link rel="stylesheet" href="/static/login-page.css">
 </head>
 <body class="container">
-<div class="auth-form col">
-    <div class="auth-form-header">
-        <h1 class="title">Сервис бронирования комнаты для переговоров</h1>
-        <!--<p class="description">Введите пожалуйста свой логин и пароль</p>
-   --> </div>
-
-    <div class="auth-form-info rounded-sm bg-danger" th:if="${param.error}">
-        <p class="message">
-            <strong>Неверно указан логин или пороль</strong>
-        </p>
-    </div>
-
-    <div class="auth-form-info">
-        <p class="description">Введите пожалуйста свой логин и пароль</p>
-    </div>
-
-    <form class="auth-form-body" th:action="@{/login}" method="post">
-        <div class="form-group">
-            <label for="user-login" class="visually-hidden">Логин</label>
-            <input type="text" class="form-control form-control-sm" id="user-login" name="username" placeholder="Логин">
+    <div class="auth-form col">
+        <div class="auth-form-header">
+            <h1 class="title">Сервис бронирования комнаты для переговоров</h1>
         </div>
-        <div class="form-group">
-            <label class="visually-hidden" for="user-password">Пороль</label>
-            <input class="form-control form-control-sm" id="user-password" type="password" name="password" placeholder="Пороль">
+
+        <div class="auth-form-info rounded-sm bg-danger" th:if="${param.error}">
+            <p class="message">
+                <strong>Неверно указан логин или пороль</strong>
+            </p>
         </div>
-        <input type="submit" class="btn btn-block btn-submit" value="Войти"/>
-    </form>
-</div>
+
+        <div class="auth-form-info">
+            <p class="description">Введите пожалуйста свой логин и пароль</p>
+        </div>
+
+        <form class="auth-form-body" th:action="@{/login}" method="post">
+            <div class="form-group">
+                <label for="user-login" class="visually-hidden">Логин</label>
+                <input type="text" class="form-control form-control-sm" id="user-login" name="username" placeholder="Логин">
+            </div>
+            <div class="form-group">
+                <label class="visually-hidden" for="user-password">Пороль</label>
+                <input class="form-control form-control-sm" id="user-password" type="password" name="password" placeholder="Пороль">
+            </div>
+            <input type="submit" class="btn btn-block btn-submit" value="Войти"/>
+        </form>
+    </div>
 </body>
 </html>
