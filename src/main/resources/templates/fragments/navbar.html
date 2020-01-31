@@ -1,26 +1,20 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <th:block th:include="fragments/header.html :: headerfiles">
-    </th:block>
+
 </head>
 <body>
-<div th:fragment="nav">
-    <div class="container mt-4">
+    <div class="container mt-4" th:fragment="nav">
         <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="/"><h1>MeetRoom</h1></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <a class="navbar-brand logo" href="/"><h1>MeetRoom</h1></a>
 
             <div class="collapse navbar-collapse navbar-dark" id="navbarText">
-                <ul class="navbar-nav mr-auto"></ul>
-                <div th:with="usr=${#httpServletRequest.remoteUser}">
-                    <div th:if="${usr}" class="dropdown">
-                        <a class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div th:with="usr=${#httpServletRequest.remoteUser}" class="user-nav">
+                    <div th:if="${usr}" class="dropdown user">
+                        <a class="btn btn-secondary btn-sm dropdown-toggle user__name" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             [[${#httpServletRequest.remoteUser}]]
                         </a>
+
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                             <form th:action="@{/logout}" method="post">
                                 <input type="submit" class="btn btn-link btn-sm" aria-haspopup="true" aria-expanded="false" value="Выйти"/>
@@ -32,7 +26,6 @@
             </div>
         </nav>
     </div>
-</div>
 </body>
 </html>
 

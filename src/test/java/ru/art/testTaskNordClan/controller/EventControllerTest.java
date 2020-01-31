@@ -84,6 +84,7 @@ public class EventControllerTest {
         LocalDateTime eventStart = LocalDateTime.parse("2020-01-30 12:00:00", formatter);
         LocalDateTime eventEnd = LocalDateTime.parse("2020-01-30 16:30:00", formatter);
 
+
         Event event = new Event(1000L,
                 "newEvent",
                 "newDesc",
