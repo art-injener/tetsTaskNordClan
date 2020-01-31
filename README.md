@@ -1,6 +1,9 @@
-testTaskNordClan - тестовое задание 
+###### **testTaskNordClan - тестовое задание** 
+    
+Проект доступен по ссылке
+###### [https://test-task-nord-clan.herokuapp.com/][Пример на сервисе herokuapp]
 
-Инструкция для запуска проекта через консоль в ОС Linux
+###### Инструкция для запуска локальной версии проекта через консоль в ОС Linux
 1. Клонировать проект с gitHub
     - git clone https://github.com/art-injener/tetsTaskNordClan.git
 2.  Перейти в папку проекта
@@ -19,3 +22,5 @@ testTaskNordClan - тестовое задание
 8. В окне ввода логина пароля ввести любой из доступных :  
     - логин test пароль test
     - логин user пароль user
+
+[Пример на сервисе herokuapp]: https://test-task-nord-clan.herokuapp.com/
